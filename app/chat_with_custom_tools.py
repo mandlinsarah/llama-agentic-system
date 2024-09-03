@@ -38,5 +38,10 @@ def page():
 
 if __name__ == "__main__":
     import subprocess
+    
+    try:
+        process = subprocess.Popen(["mesop", __file__])
+        process.communicate()
+    except subprocess.SubprocessError as e:
+        print(f"An error occurred while running the subprocess: {e}")
 
-    subprocess.run(["mesop", __file__])
